@@ -7,8 +7,8 @@ class Dashboard extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      //node_url: 'a263d53aae7c911e8a7a9069f40f5f2f-415446416.ap-southeast-1.elb.amazonaws.com:3000/ws',
-      node_url: '127.0.0.1:3001/ws',
+      node_url: 'a263d53aae7c911e8a7a9069f40f5f2f-415446416.ap-southeast-1.elb.amazonaws.com:3000/ws',
+      //node_url: '127.0.0.1:3001/ws',
       conn_status: 'disconnected',
     }
     this.handleChange = this.handleChange.bind(this)
