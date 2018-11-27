@@ -1,0 +1,31 @@
+.Navigation {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: center;
+  flex-grow: 1;
+}
+
+.Navigation.connected {
+  flex-grow: 0;
+}
+
+.Navigation .navbar {
+  align-items: center;
+  justify-content: center;
+}
+
+.Navigation.connected h1 {
+  display: none;
+}
+
+.Navigation h1 {
+  font-size: calc(10px + 8vmin);
+  text-align: center;
+}
+
+.Navigation .input-group {
+  flex-grow: 1;
+  max-width: 960px;
+}
+

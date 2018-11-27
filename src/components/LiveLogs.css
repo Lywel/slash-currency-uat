@@ -1,0 +1,20 @@
+.LiveLogs h3 {
+  position: absolute;
+}
+
+.LiveLogs > div {
+  padding-top: 45px;
+  overflow-y: auto;
+  height: 100%;
+}
+
+.LiveLogs .card {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  display: inline-block;
+}
+
+.LiveLogs .card .octicon {
+  margin-right: .75em;
+}
