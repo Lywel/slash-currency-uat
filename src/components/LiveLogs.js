@@ -27,11 +27,10 @@ class LiveLogs extends Component {
             </CardHeader>
             <UncontrolledCollapse toggler={ '#log-toggler-' + id }>
               <CardBody>
-                <CardText>
                   { typeof(log.data) === 'string'
                       ? log.data
                       : Object.entries(log.data)
-                        .map(([key, val]) => {
+                        .map(([key, val], id) => {
                           switch (key) {
                           case 'Address':
                           case 'Dest':
@@ -41,14 +40,15 @@ class LiveLogs extends Component {
                             val = JSON.stringify(val)
                           }
                           return (
-                            <p>
-                              <strong>{ key }</strong>:{' '}
+                            <p key={ id }>
+                              <strong>{ key }: </strong>
+                              <span>
                               { val }
+                              </span>
                             </p>
                           )
                         })
                   }
-                </CardText>
               </CardBody>
             </UncontrolledCollapse>
           </Card>
