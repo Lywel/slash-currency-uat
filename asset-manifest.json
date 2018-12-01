@@ -1,15 +1,15 @@
 {
-  "main.css": "/slash-currency-uat/static/css/main.6c0b14ed.chunk.css",
-  "main.js": "/slash-currency-uat/static/js/main.60ee3a9a.chunk.js",
-  "main.js.map": "/slash-currency-uat/static/js/main.60ee3a9a.chunk.js.map",
-  "static/css/1.b67b27c6.chunk.css": "/slash-currency-uat/static/css/1.b67b27c6.chunk.css",
-  "static/js/1.936f3269.chunk.js": "/slash-currency-uat/static/js/1.936f3269.chunk.js",
-  "static/js/1.936f3269.chunk.js.map": "/slash-currency-uat/static/js/1.936f3269.chunk.js.map",
-  "runtime~main.js": "/slash-currency-uat/static/js/runtime~main.3758b002.js",
-  "runtime~main.js.map": "/slash-currency-uat/static/js/runtime~main.3758b002.js.map",
-  "static/css/main.6c0b14ed.chunk.css.map": "/slash-currency-uat/static/css/main.6c0b14ed.chunk.css.map",
-  "static/css/1.b67b27c6.chunk.css.map": "/slash-currency-uat/static/css/1.b67b27c6.chunk.css.map",
-  "index.html": "/slash-currency-uat/index.html",
-  "precache-manifest.72591666b45d65af999c11146b85e7f5.js": "/slash-currency-uat/precache-manifest.72591666b45d65af999c11146b85e7f5.js",
-  "service-worker.js": "/slash-currency-uat/service-worker.js"
+  "main.css": "/build/static/css/main.6c0b14ed.chunk.css",
+  "main.js": "/build/static/js/main.07f1381c.chunk.js",
+  "main.js.map": "/build/static/js/main.07f1381c.chunk.js.map",
+  "static/css/1.b67b27c6.chunk.css": "/build/static/css/1.b67b27c6.chunk.css",
+  "static/js/1.936f3269.chunk.js": "/build/static/js/1.936f3269.chunk.js",
+  "static/js/1.936f3269.chunk.js.map": "/build/static/js/1.936f3269.chunk.js.map",
+  "runtime~main.js": "/build/static/js/runtime~main.3923d73d.js",
+  "runtime~main.js.map": "/build/static/js/runtime~main.3923d73d.js.map",
+  "static/css/main.6c0b14ed.chunk.css.map": "/build/static/css/main.6c0b14ed.chunk.css.map",
+  "static/css/1.b67b27c6.chunk.css.map": "/build/static/css/1.b67b27c6.chunk.css.map",
+  "index.html": "/build/index.html",
+  "precache-manifest.b2e28d4045a4ad636fee53d367cd9b34.js": "/build/precache-manifest.b2e28d4045a4ad636fee53d367cd9b34.js",
+  "service-worker.js": "/build/service-worker.js"
 }
