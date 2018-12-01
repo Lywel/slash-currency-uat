@@ -1,6 +1,6 @@
 {
   "name": "currency-uat",
-  "homepage": "http://uat.slash-currency.tk/",
+  "homepage": "http://uat.slash-currency.tk",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
