@@ -17,10 +17,20 @@ class Navigation extends Component {
       url: this.props.url
     }
     this.handleChange = this.handleChange.bind(this)
+    this.handleKeyPress = this.handleKeyPress.bind(this)
   }
 
   handleChange(evt) {
     this.setState({...this.state, url: evt.target.value})
+  }
+
+  handleKeyPress(evt) {
+    if (evt.key === 'Enter') {
+      // If button is disabled
+      if (this.props.status === 'connected' && this.props.url === this.state.url)
+        return
+      this.props.onChange(this.state.url)
+    }
   }
 
   render() {
@@ -41,7 +51,7 @@ class Navigation extends Component {
             <InputGroupAddon addonType="prepend">
               <Badge color={ status_color }>{' '}</Badge>
             </InputGroupAddon>
-            <Input value={ url } onChange={ this.handleChange } />
+            <Input value={ url } onChange={ this.handleChange } onKeyPress={ this.handleKeyPress }/>
             <InputGroupAddon addonType="append">
               <Button
                 onClick={() => onChange(url)}

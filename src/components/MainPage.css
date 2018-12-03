@@ -9,3 +9,16 @@
 
 .MainPage.connected {
 }
+
+.MainPage .row h2 {
+  position: absolute;
+  text-align: center;
+  bottom: 0;
+  left: 0;
+  padding: 15px;
+  display: block;
+  width: 100%;
+  z-index: 20;
+  background:  linear-gradient(to bottom, rgb(40, 44, 52, 0), rgb(40, 44, 52, .6) 40%, rgb(40, 44, 52, 1));
+  margin-bottom: 0;
+}

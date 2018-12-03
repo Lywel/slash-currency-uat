@@ -16,7 +16,7 @@ class NetworkTopo extends Component {
     nodes: {
       shape: 'hexagon',
       shadow: true,
-      size: 40,
+      size: 20,
       font: {
         color: 'white',
       },
@@ -26,11 +26,8 @@ class NetworkTopo extends Component {
 
   events = {
     select: event => {
-      var { nodes, edges } = event;
-      console.log("Selected nodes:");
-      console.log(nodes);
-      console.log("Selected edges:");
-      console.log(edges);
+      const { nodes/*, edges */ } = event;
+      this.props.onNodeSelect(nodes[0])
     }
   }
 

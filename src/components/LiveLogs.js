@@ -1,65 +1,96 @@
 import React, { Component } from 'react'
 import {
-  Card,
-  CardHeader,
-  CardText,
-  CardBody,
-  UncontrolledCollapse,
+  ListGroup,
+  ListGroupItem,
+  Button,
 } from 'reactstrap'
-import Octicon, {ChevronLeft, ChevronRight} from '@githubprimer/octicons-react'
+import Octicon, {ChevronLeft, ChevronRight, Clippy, Alert} from '@githubprimer/octicons-react'
+import LogDetailsModal from './LogDetailsModal'
 
 import './LiveLogs.css'
 
+function stylizeItem(type) {
+  switch (type) {
+  case 'ibftEventIn':
+    return {
+      color: 'primary',
+      icon: ChevronRight,
+    }
+  case 'ibftEventOut':
+    return {
+      color: 'info',
+      icon: ChevronLeft,
+    }
+  case 'txEvent':
+    return {
+      color: 'success',
+      icon: Clippy,
+    }
+  default:
+    return {
+      color: 'dark',
+      icon: Alert,
+    }
+  }
+}
+
 class LiveLogs extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      detailsModalOpen: false,
+      details: null,
+    }
+
+    this.openDetailsModal = this.openDetailsModal.bind(this)
+    this.closeDetailsModal = this.closeDetailsModal.bind(this)
+  }
+
+  openDetailsModal(details) {
+    return () => {
+      this.setState({
+        detailsModalOpen: true,
+        details: details,
+      })
+    }
+  }
+
+  closeDetailsModal() {
+    this.setState({
+      detailsModalOpen: false,
+    })
+  }
+
   render() {
+
     const logs = this.props.logs
-      .reverse()
       .map((log, id) => (
-        <div key={ id } >
-          <Card className="text-white bg-dark">
-            <CardHeader id={ 'log-toggler-' + id }>
-              {
-                log.type === "ibftEventIn"
-                  ? <Octicon icon={ChevronLeft} />
-                  : <Octicon icon={ChevronRight} />
-              }
-              { log.dataType || log.type }
-            </CardHeader>
-            <UncontrolledCollapse toggler={ '#log-toggler-' + id }>
-              <CardBody>
-                  { typeof(log.data) === 'string'
-                      ? log.data
-                      : Object.entries(log.data)
-                        .map(([key, val], id) => {
-                          switch (key) {
-                          case 'Address':
-                          case 'Dest':
-                            val = val.map(c => c.toString(16)).join('')
-                            break;
-                          default:
-                            val = JSON.stringify(val)
-                          }
-                          return (
-                            <p key={ id }>
-                              <strong>{ key }: </strong>
-                              <span>
-                              { val }
-                              </span>
-                            </p>
-                          )
-                        })
-                  }
-              </CardBody>
-            </UncontrolledCollapse>
-          </Card>
-        </div>
+        <ListGroupItem key={ id } color={ stylizeItem(log.type).color }>
+          <Button color="link" onClick={ this.openDetailsModal(log) }>
+            <Octicon icon={ stylizeItem(log.type).icon } />
+            { (() => {
+              switch (log.dataType) {
+                case 'core.RequestEvent':
+                  return 'Proposal: block'
+                default:
+                  return log.dataType || log.type
+                }
+              })()
+            }
+          </Button>
+        </ListGroupItem>
       ))
+    const { details, detailsModalOpen } = this.state
     return (
       <div className="LiveLogs h-100">
-        <h3>Live logs</h3>
-        <div>
+        <LogDetailsModal
+          isOpen={ detailsModalOpen }
+          toggle={ this.closeDetailsModal }
+          details={ details }
+        />
+        <ListGroup>
         { logs }
-        </div>
+        </ListGroup>
       </div>
     )
   }
